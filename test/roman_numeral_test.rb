@@ -15,10 +15,16 @@ class RomanNumeralTest < Minitest::Test
     assert_equal(2, number)
   end
 
-  def test_should_understand_four_symbols
+  def test_should_convert_four_symbols_to_number
     roman = RomanNumeral.new
     number = roman.convert("XXII")
     assert_equal(22, number)
+  end
+
+  def test_should_convert_symbols_how_IV_to_number
+    roman = RomanNumeral.new
+    number = roman.convert("IX")
+    assert_equal(9, number)
   end
 
 end
