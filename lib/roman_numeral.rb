@@ -11,7 +11,21 @@ class RomanNumeral
   }
 
   def convert(symbol)
-    symbol.split("").map { |s| TABLE[s] }.reduce(:+)
+    acumulator = 0
+    the_right_number = 0
+
+    symbol.split("").reverse.each do |s|
+      current = TABLE[s]
+
+      multiplier = 1
+      multiplier = -1 if current < the_right_number
+
+      acumulator += current * multiplier
+
+      the_right_number = current
+    end
+
+    acumulator
   end
 
 end
